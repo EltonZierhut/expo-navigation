@@ -1,9 +1,13 @@
 import React from 'react'
-import StackNavigator from './src/navigation/StackNavigator';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import DrawerNavigator from './src/navigation/DrawerNavigator';
 
+const queryClient = new QueryClient()
+
 export default function App() {
-  // return <StackNavigator />;
-  
-  return <DrawerNavigator />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <DrawerNavigator />
+    </QueryClientProvider>
+  )
 }
